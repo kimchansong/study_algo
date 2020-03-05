@@ -2,7 +2,7 @@
 
 #### member : [고민재](https://github.com/rhalswo1234), [김영민](https://github.com/zeromin-kim), [김찬송](https://github.com/kimchansong), [신운재](https://github.com/shin8901), [전병윤](https://github.com/byjeon)
 
-#### 소스 생성 규칙 : 이름_상위파일문제명_문제번호 ex) 김찬송_BOJ_1600 
+#### 소스 생성 규칙 : 문제이름_문제번호_이름 ex) 말이되고픈원숭이_1600_김찬송 
 
 ##### 1주차 문제 List(bfs,dfs 몸풀기) 2020.02.25 
   - 1600 말이 되고픈 원숭이
