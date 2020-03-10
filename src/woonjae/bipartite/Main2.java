@@ -28,8 +28,8 @@ public class Main2 {
 				point = sc.nextInt();
 				line = sc.nextInt();
 
-				for (int i = 1; i <= point; i++) {
-					for (int j = 1; j <= point; j++) {
+				for (int i = 0; i <= point; i++) {
+					for (int j = 0; j <= point; j++) {
 						map[i][j] = false;
 					}
 				}
@@ -68,7 +68,7 @@ public class Main2 {
 
 		while (!q.isEmpty()) {
 			int startV = q.poll();
-			if (map[startV][0]) {
+			if (map[startV][0]) { // 행에 찾을것이 있다면
 				for (int i = 1; i <= point && map[startV][i]; i++) {
 					// 인접 노드믄
 					if (visited[i] == 0) { // 방문한 적 없으면

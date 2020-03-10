@@ -58,22 +58,22 @@ public class p2 {
 					int nextX = nowX + dx[j];
 					int nextK = nowK;
 
-					// ë§ì´?™
+					// ë§ì´?ï¿½ï¿½
 					if (j >= 4) {
 						nextK--;
 
-						// ?‹¤ ?¼?œ¼ë©?
+						// ?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½ï¿½?
 						if (nextK < 0) {
 							continue;
 						}
 					}
 
-					// ëª»ê??Š” ê³³ì´ë©?
+					// ëª»ï¿½??ï¿½ï¿½ ê³³ì´ï¿½?
 					if (nextY < 0 || nextX < 0 || nextY >= my || nextX >= mx) {
 						continue;
 					}
 
-					// ?ž¥?• ë¬¼ì´ê±°ë‚˜ ë°©ë¬¸?–ˆ?œ¼ë©?
+					// ?ï¿½ï¿½?ï¿½ï¿½ë¬¼ì´ê±°ë‚˜ ë°©ë¬¸?ï¿½ï¿½?ï¿½ï¿½ï¿½?
 					if (matrix[nextY][nextX] || visit[nextY][nextX][nextK]) {
 						continue;
 					}
