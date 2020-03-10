@@ -4,10 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Main4 {
+public class Main {
 
 	static int xlength;
 	static int ylength;
@@ -30,19 +29,10 @@ public class Main4 {
 				st = new StringTokenizer(br.readLine());
 				String dd = st.nextToken();
 				for (int j = 0; j < xlength; j++) {
-					// System.out.println();
 					map[i][j] = Integer.parseInt(dd.substring(j, j + 1));
 				}
 			}
 
-//
-//			for (int i = 0; i < ylength; i++) {
-//				for (int j = 0; j < xlength; j++) {
-//					System.out.print(map[i][j]);
-//				}
-//				System.out.println();
-//			}
-//
 			Queue<Node> q = new LinkedList<Node>();
 			q.add(new Node(0, 0, k, 1));
 
@@ -52,13 +42,12 @@ public class Main4 {
 
 			while (!q.isEmpty()) {
 				Node d = q.poll();
-				// System.out.println(q);
 				if (d.x == xlength - 1 && d.y == ylength - 1) {
 					answer = d.count;
 					break;
 				}
 
-				// ¹«ºê
+				// íŒ¨í„´ ë¬´ë¸Œ
 				for (int i = 0; i < pattern1.length; i++) {
 					int nx = d.x + pattern1[i][0];
 					int ny = d.y + pattern1[i][1];
@@ -70,7 +59,7 @@ public class Main4 {
 							q.add(new Node(nx, ny, nk, d.count + 1));
 						}
 
-						// º®»Ñ½Ã±â °¡´É?
+						// ë²½ëš«ê¸° ê°€ëŠ¥
 						if (map[ny][nx] == 1 && nk > 0) {
 							visited[ny][nx][nk - 1] = true;
 							q.add(new Node(nx, ny, nk - 1, d.count + 1));
