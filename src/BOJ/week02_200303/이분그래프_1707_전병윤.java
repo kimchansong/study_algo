@@ -1,3 +1,4 @@
+package BOJ.week02_200303;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

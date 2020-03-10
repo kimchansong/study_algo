@@ -1,4 +1,4 @@
-package BOJ.week01_200303;
+package BOJ.week02_200303;
 
 import java.util.Scanner;
 
