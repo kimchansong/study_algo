@@ -78,7 +78,6 @@ public class Main {
 			Character type = iterator.next();
 			System.out.println(" key " + type);
 			System.out.println(" value " + use.get(type));
-
 		}
 	}
 }
