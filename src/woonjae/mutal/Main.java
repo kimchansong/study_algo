@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class Main {
 
-	private static boolean[] visited = null;
+	private static boolean[][][][] visited = null;
 	static int N = 0;
 	static int SCV[];
 	static int ZERO[];
-	static int ATTACK[] = { 9, 3, 1 };
+	static int ATTACK[][] = { { 9, 3, 1 }, { 9, 1, 3 }, { 1, 3, 9 }, { 1, 9, 3 }, { 3, 9, 1 }, { 3, 1, 9 } };
 
 	static int FULL_ATTACK[][];
 	static Queue<Node> q;
@@ -21,7 +21,7 @@ public class Main {
 
 			N = sc.nextInt();
 			SCV = new int[N];
-			visited = new boolean[N];
+			visited = new boolean[61][61][61][61];
 
 			for (int i = 0; i < SCV.length; i++) {
 				SCV[i] = sc.nextInt();
@@ -60,23 +60,24 @@ public class Main {
 			return;
 		}
 
-		for (int i = 0; i < N; i++) {
-			if (!visited[i]) {
-				visited[i] = true;
-				int nv = attackV;
-				boolean flag = v.v[i] > 0;
-				if (flag) {
-					v.v[i] -= ATTACK[attackV];
-					nv += 1;
-				}
+		for (int i = 0; i < v.v.length; i++) {
 
-				dfs(v, nv, remain - 1);
-
-				if (flag)
-					v.v[i] += ATTACK[attackV];
-
-				visited[i] = false;
-			}
+//			if (!visited[i]) {
+//				visited[i] = true;
+//				int nv = attackV;
+//				boolean flag = v.v[i] > 0;
+//				if (flag) {
+//					v.v[i] -= ATTACK[attackV];
+//					nv += 1;
+//				}
+//
+//				dfs(v, nv, remain - 1);
+//
+//				if (flag)
+//					v.v[i] += ATTACK[attackV];
+//
+//				visited[i] = false;
+//			}
 		}
 	}
 
