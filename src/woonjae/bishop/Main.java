@@ -22,52 +22,49 @@ public class Main {
 					MAP[i][j] = sc.nextInt();
 				}
 			}
+			// blackDfs(x, y, bishop);
+			int white = dfs(0, 0, 1);
+			int black = dfs(0, 1, 1);
+			System.out.println(white);
+			System.out.println(black);
 
-			for (int i = 0; i < K; i++) {
-				for (int j = 0; j < K; j++) {
-					dfs(i, j, 1);
-					clearBishop(1);
-				}
-			}
-			System.out.println(ANSWER);
 		}
 	}
 
-	private static void dfs(int x, int y, int bishop) {
-//		System.out.println(x);
-//		System.out.println(y);
-//		System.out.println(bishop);
-//		System.out.println();
-
-		if (x >= K) {
-			return;
-		}
-		if (y >= K) {
-			return;
-		}
-
-		if (visited[x][y] > 0) {
-			return;
-		}
-
-		if (MAP[x][y] == 0) {
-			return;
-		}
-		bishopCheck(x, y, bishop);
-		for (int i = 0; i < visited.length; i++) {
-			System.out.println(Arrays.toString(visited[i]));
+	private static void print() {
+		for (int k = 0; k < visited.length; k++) {
+			System.out.println(Arrays.toString(visited[k]));
 		}
 		System.out.println();
+	}
 
-		ANSWER = Math.max(ANSWER, bishop);
-
-		for (int i = 0; i < K; i++) {
-			for (int j = 0; j < K; j++) {
-				dfs(i, j, bishop + 1);
-				clearBishop(bishop + 1);
-			}
+	private static int dfs(int x, int y, int bishop) {
+		int value = 0;
+		if (y >= K) {
+			// 현재 화이트 면 다음 블랙
+			y = (y + 1) % 2;
+			x = x + 1;
 		}
 
+		if (x >= K) {
+			return 0;
+		}
+//		System.out.println("x " + x);
+//		System.out.println("y " + y);
+//		System.out.println(MAP[x][y]);
+//		System.out.println(visited[x][y]);
+//		System.out.println();
+
+		if (MAP[x][y] != 0 && visited[x][y] == 0) {
+			bishopCheck(x, y, bishop);
+//			System.out.println("앙");
+			value = Math.max(dfs(x, y + 2, bishop + 1), bishop);
+			clearBishop(bishop);
+		}
+		value = Math.max(dfs(x, y + 2, bishop), value);
+		clearBishop(bishop);
+//		System.out.println(value);
+		return value;
 	}
 
 	private static void bishopCheck(int x, int y, int bishop) {
@@ -96,20 +93,4 @@ public class Main {
 
 	}
 
-	static class Node {
-
-		public Node(int x, int y) {
-			super();
-			this.x = x;
-			this.y = y;
-		}
-
-		int x, y;
-
-		@Override
-		public String toString() {
-			return "Node [x=" + x + ", y=" + y + "]";
-		}
-
-	}
 }
